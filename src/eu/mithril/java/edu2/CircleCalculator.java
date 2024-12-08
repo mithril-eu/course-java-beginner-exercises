@@ -22,20 +22,51 @@ import java.util.Scanner;
  * - Use scanner.hasNextDouble() to check if input is a number
  * - Use String.format("%.2f", value) for decimal formatting
  */
+
 public class CircleCalculator {
     public static void main(String[] args) {
         // Create Scanner object for user input
         Scanner scanner = new Scanner(System.in);
 
-        // TODO: Declare necessary constants (PI)
+        // Declare constant for π
+        final double PI = Math.PI;
 
-        // TODO: Implement input validation loop
+        // Variable to store radius
+        double radius;
 
-        // TODO: Get and validate user input
+        // Input validation loop
+        while (true) {
+            // Prompt user for input
+            System.out.print("Enter the radius of the circle (positive number): ");
 
-        // TODO: Calculate area and perimeter
+            // Check if input is a valid number
+            if (!scanner.hasNextDouble()) {
+                System.out.println("Error: Please enter a valid number");
+                scanner.next(); // Clear invalid input
+                continue;      // Restart loop
+            }
 
-        // TODO: Display formatted results
+            // Get the number since we know it's valid
+            radius = scanner.nextDouble();
+
+            // Check if number is positive
+            if (radius <= 0) {
+                System.out.println("Error: Radius must be a positive number");
+                continue;      // Restart loop
+            }
+
+            // If we get here, input is valid
+            break;            // Exit loop
+        }
+
+        // Calculate area and perimeter
+        double area = PI * radius * radius;
+        double perimeter = 2 * PI * radius;
+
+        // Display results with 2 decimal places
+        System.out.println("\nResults for circle with radius " + radius + ":");
+        System.out.println("Area: " + String.format("%.2f", area));
+        System.out.println("Perimeter: " + String.format("%.2f", perimeter));
 
         // Close scanner
         scanner.close();
