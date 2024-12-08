@@ -35,7 +35,6 @@ package eu.mithril.java.edu2;
  * Vikend dodatak: +12,00 €
  * Konačni iznos: 114,00 €
  */
-
 public class DiscountCalculator {
     // TODO: Define constants for business rules
 
